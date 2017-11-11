@@ -29,7 +29,6 @@ var results = {
     }
   ],
   botmode : botmode,
-  chatport : process.env.GOCHANNEL_CHAT_PORT,
   localChatPath : process.env.GOCHANNEL_CHAT_LOCAL_URL
 };
 

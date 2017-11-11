@@ -4,7 +4,6 @@ var spinner = ".mdl-spinner";
 var snackbarID = "#snackbar";
 
 /* ############### Chat  #################### */
-var chatSocketID = '#chprt';
 var chatSocketURL = '#chtpath';
 var chatbuttonID = "#chat-kit-button";
 var chatFormID = "#chat-input-form";
@@ -86,7 +85,8 @@ $(function() {
     }
   });
 
-  $(chatSocketID).ready(function() {
+  // $(chatSocketURL).ready(function() {
+  $(chatFormID).ready(function() {
     $inputMessage.submit(function(){
       sendMessage();
       return false;
