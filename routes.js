@@ -51,7 +51,7 @@ router.post('/api/messages', function(req, res, next) {
   // console.log("req.body.type = ");
   // console.log(req.body);
   let msg = parseBotFramToMessage(req.body);
-
+  console.log(msg);
   if(req.body.type == BOTFRAMEWORK_MESSAGE){
     results.messages.push(msg);
     chat_client.emit(msg);
