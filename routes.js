@@ -70,10 +70,10 @@ function parseBotFramToMessage(body){
   messages = {
     mensagem : body.text,
     assunto : body.text,
-    canal : body.connector,
+    canal : body.source,
     qtdeMsgs : "1",
     status : "Em atendimento",
-    atendente : body.agent,
+    atendente : body.address.bot.name,
     // quando : moment(body.localTimestamp).fromNow(),
     quando : moment(body.localTimestamp).format(DATETIME_MASK),
     tags : [{tag : "#" + body.connector}]
