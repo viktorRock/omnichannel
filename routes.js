@@ -47,12 +47,9 @@ router.get('/index', function(req, res, next) {
 // URL para receber posts do ConnectorBot
 router.post('/api/messages', function(req, res, next) {
   res.botmode = botmode;
-
-  // console.log("req.body.type = ");
-  // console.log(req.body);
   let msg = parseBotFramToMessage(req.body);
   console.log(req.body);
-  console.log(req.route);
+  // console.log(req.route);
   if(req.body.type == BOTFRAMEWORK_MESSAGE){
     results.messages.push(msg);
     chat_client.emit(msg);
