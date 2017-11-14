@@ -2,8 +2,13 @@
   background-color: darkcyan;
 }
 
+.canal-telegram{
+  background-color: royalblue;
+}
+
 .canal-skype{
-  background-color: #00AFF0;
+  /*background-color: #00AFF0;*/
+  background-color: deepskyblue;
 }
 
 .canal-messenger{
@@ -23,8 +28,6 @@
   color: white;
   align-items: center;
 }
-
-
 
 .chat-kit {
   position: fixed;
