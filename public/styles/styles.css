@@ -7,8 +7,11 @@
 }
 
 .canal-skype{
-  /*background-color: #00AFF0;*/
   background-color: deepskyblue;
+}
+
+.canal-facebook{
+  background-color: slateblue;
 }
 
 .canal-messenger{
