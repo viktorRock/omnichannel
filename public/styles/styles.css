@@ -1,3 +1,22 @@
+
+/*********************************************************************/
+.mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type .mdl-layout.is-small-screen  {
+    padding-left: 12px;
+}
+
+.mdl-data-table td .mdl-layout.is-small-screen {
+    padding: 8px 4px
+}
+
+.mdl-data-table .mdl-layout.is-small-screen {
+    white-space: normal;
+}
+
+.mdl-data-table th .mdl-layout.is-small-screen{
+    padding: 0 4px 8px 4px;
+}
+
+/*********************************************************************/
 .canal-email{
   background-color: darkcyan;
 }
