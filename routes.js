@@ -16,10 +16,6 @@ moment.locale('pt-br');
 var results = {
   messages: [
   {
-    id: "1", contato: "Victor", canal : "skype", qtdeMsgs: "2", assunto: "Pedido de Compra", mensagem : "",
-    status: "Em atendimento", atendente : "Paulo", quando: moment("2017-08-19T01:00:03").format(DATETIME_MASK), tags: [{tag : "#Pedido"},{tag : "#vip"}]
-  },
-  {
     id: "2", contato: "Peterson", canal : "skype", qtdeMsgs: "3", assunto: "Envio de Documentos", mensagem : "",
     status: "Pendente", atendente : "Andre", quando: moment("2017-08-31T01:00:03").format(DATETIME_MASK), tags: [{tag : "#docs"}]
   },
@@ -48,13 +44,12 @@ router.get('/index', function(req, res, next) {
 router.post('/api/messages', function(req, res, next) {
   res.botmode = botmode;
   let msg = parseBotFramToMessage(req.body);
-  console.log(req.body);
   results.messages.push(msg);
-  console.log('messages.push(msg);');
+  console.log('########## messages.push(msg);');
   console.log(msg);
   chat_client.emit(msg);
   chat_client.setMSGSession(msg);
-  res.render('index', results);
+  // res.render('index', results);
 });
 
 function parseBotFramToMessage(body){
