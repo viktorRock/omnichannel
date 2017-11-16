@@ -50,6 +50,8 @@ router.post('/api/messages', function(req, res, next) {
   let msg = parseBotFramToMessage(req.body);
   console.log(req.body);
   results.messages.push(msg);
+  console.log('messages.push(msg);');
+  console.log(msg);
   chat_client.emit(msg);
   chat_client.setMSGSession(msg);
   res.render('index', results);
