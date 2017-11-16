@@ -38,9 +38,9 @@ function setMSGSession(msgSession){
 
 function emit(msg){
   addUser(msg);
-  socket.emit('new message', msg.mensagem);
-  console.log('EMIT msg !!!! ')
+  console.log('connector_client -----> EMIT msg !!!! ')
   console.log(socket);
+  socket.emit('new message', msg.mensagem);
 }
 
 module.exports = {

@@ -17,6 +17,8 @@ module.exports = function(router){
     // when the client emits 'new message', this listens and executes
     socket.on('new message', function (data) {
       // console.log(MSG_LOG_USER_SEND, socket.username, data);
+      console.log('connector_client -----> EMIT msg !!!! ')
+      console.log(socket);
       socket.broadcast.emit('new message', {
         username: socket.username,
         message: data
