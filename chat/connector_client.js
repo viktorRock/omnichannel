@@ -39,7 +39,7 @@ function setMSGSession(msgSession){
 function emit(msg){
   addUser(msg);
   console.log('connector_client -----> EMIT msg !!!! ')
-  console.log(socket);
+  console.log(msg.contato);
   socket.emit('new message', msg.mensagem);
 }
 
