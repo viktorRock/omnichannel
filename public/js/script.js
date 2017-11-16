@@ -183,7 +183,7 @@ socket.on('connect', () => {
     message : MSG_SELF_CON
   }
   let options = { messageType : MSG_TYPE_STATUS };
-  addChatMessage(msg,options);
+  // addChatMessage(msg,options);
   $(chatConnectID).css('color', 'yellowgreen'); 
 });
 
@@ -193,7 +193,7 @@ socket.on('disconnect', function () {
     message : MSG_SELF_DESCON
   }
   let options = { messageType : MSG_TYPE_STATUS };
-  addChatMessage(msg,options);
+  // addChatMessage(msg,options);
   $(chatConnectID).css('color', 'orangered'); 
 });
 
@@ -204,7 +204,7 @@ socket.on('reconnect_error', function () {
   }
   let options = { messageType : MSG_TYPE_STATUS };
   addChatMessage(msg),options;
-  // $(chatConnectID).css('color', 'orangered'); 
+  $(chatConnectID).css('color', 'orangered'); 
 });
 
 //mensagem de usuário que entrou

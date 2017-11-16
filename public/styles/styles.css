@@ -60,6 +60,12 @@
   height: 320px;
 }
 
+@media only screen and (max-width: 767px) {
+  #chat-text{
+    height: 240px;
+  }
+}
+
 #chat-text .status{
   font-size: 13px;
 }
