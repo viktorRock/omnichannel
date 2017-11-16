@@ -109,10 +109,9 @@ function addChatMessage(data, options){
 
   // TODO Formatar no melhor momento
   data.message = " " + data.message;
-  // let $chatMessagesList = $('#chat-text-list');
-  var $usernameDiv = $('<span class="username"/>').text(data.username).css('color', getUsernameColor(data.username));
-  var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-  var $messageDiv = $('<span class="message">').append($usernameDiv, $messageBodyDiv).addClass(msgChipClass);
+  let $usernameDiv = $('<span class="username"/>').text(data.username).css('color', getUsernameColor(data.username));
+  let $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+  let $messageDiv = $('<span class="message">').append($usernameDiv, $messageBodyDiv).addClass(msgChipClass);
 
   // Formatando
   if(options){
@@ -128,9 +127,8 @@ function addChatMessage(data, options){
     }
   }
 
-  var $chatTextArea = $(chatTextID);
+  let $chatTextArea = $(chatTextID);
   $chatTextArea.data('username', data.username).append('<br>').append($messageDiv);
-
   //TODO ajustar a um valor menos absurdo
   $chatTextArea.scrollTop(scrollToTop);
 }
@@ -177,23 +175,16 @@ socket.on('new message', function (data) {
 
 // Necessário para sincronizar o usuário novamente com o server
 socket.on('connect', () => {
-  socket.emit('sync user', userName);
-  let msg = {
-    username : userName,
-    message : MSG_SELF_CON
-  }
-  let options = { messageType : MSG_TYPE_STATUS };
-  // addChatMessage(msg,options);
+  // socket.emit('sync user', userName);
+  // let msg = {
+  //   username : userName,
+  //   message : MSG_SELF_CON
+  // }
+  // let options = { messageType : MSG_TYPE_STATUS };
   $(chatConnectID).css('color', 'yellowgreen'); 
 });
 
 socket.on('disconnect', function () {
-  let msg = {
-    username : userName,
-    message : MSG_SELF_DESCON
-  }
-  let options = { messageType : MSG_TYPE_STATUS };
-  // addChatMessage(msg,options);
   $(chatConnectID).css('color', 'orangered'); 
 });
 
