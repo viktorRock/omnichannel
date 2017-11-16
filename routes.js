@@ -15,18 +15,18 @@ moment.locale('pt-br');
 
 var results = {
   messages: [
-    {
-      id: "1", contato: "Victor", canal : "skype", qtdeMsgs: "2", assunto: "Pedido de Compra", mensagem : "",
-      status: "Em atendimento", atendente : "Paulo", quando: moment("2017-08-19T01:00:03").format(DATETIME_MASK), tags: [{tag : "#Pedido"},{tag : "#vip"}]
-    },
-    {
-      id: "2", contato: "Peterson", canal : "skype", qtdeMsgs: "3", assunto: "Envio de Documentos", mensagem : "",
-      status: "Pendente", atendente : "Andre", quando: moment("2017-08-31T01:00:03").format(DATETIME_MASK), tags: [{tag : "#docs"}]
-    },
-    {
-      id: "3", contato: "Andre", canal : "skype", qtdeMsgs: "1",  assunto: "Confirmação de Compra", mensagem : "",
-      status: "Fechado", atendente : "Paulo",quando: moment("2017-06-10T01:00:03").format(DATETIME_MASK), tags: [{tag : "#formalizacao"}]
-    }
+  {
+    id: "1", contato: "Victor", canal : "skype", qtdeMsgs: "2", assunto: "Pedido de Compra", mensagem : "",
+    status: "Em atendimento", atendente : "Paulo", quando: moment("2017-08-19T01:00:03").format(DATETIME_MASK), tags: [{tag : "#Pedido"},{tag : "#vip"}]
+  },
+  {
+    id: "2", contato: "Peterson", canal : "skype", qtdeMsgs: "3", assunto: "Envio de Documentos", mensagem : "",
+    status: "Pendente", atendente : "Andre", quando: moment("2017-08-31T01:00:03").format(DATETIME_MASK), tags: [{tag : "#docs"}]
+  },
+  {
+    id: "3", contato: "Andre", canal : "skype", qtdeMsgs: "1",  assunto: "Confirmação de Compra", mensagem : "",
+    status: "Fechado", atendente : "Paulo",quando: moment("2017-06-10T01:00:03").format(DATETIME_MASK), tags: [{tag : "#formalizacao"}]
+  }
   ],
   botmode : botmode,
   localChatPath : process.env.GOCHANNEL_CHAT_LOCAL_URL
@@ -49,18 +49,11 @@ router.post('/api/messages', function(req, res, next) {
   res.botmode = botmode;
   let msg = parseBotFramToMessage(req.body);
   console.log(req.body);
-  // console.log(req.route);
-  if(req.body.type == BOTFRAMEWORK_MESSAGE){
-    results.messages.push(msg);
-    chat_client.emit(msg);
-    chat_client.setMSGSession(msg);
-    res.render('index', results);
-  }else{
-    chat_client.addUser(msg);
-  }
-
+  results.messages.push(msg);
+  chat_client.emit(msg);
+  chat_client.setMSGSession(msg);
+  res.render('index', results);
 });
-
 
 function parseBotFramToMessage(body){
   var messages={};
@@ -77,19 +70,16 @@ function parseBotFramToMessage(body){
     tags : [{tag : "#" + body.connector}]
   };
 
-  if(body.type == BOTFRAMEWORK_MESSAGE){
-    messages.contato = body.user.name;
-    messages.id = body.address.conversation.id;
+  messages.contato = body.user.name;
+  messages.id = body.address.conversation.id;
 
-    messages.keys = {
-      userId : body.user.id,
-      conversaId : body.address.conversation.id,
-      addressId :  body.address.id,
-      botId : body.address.bot.id,
-      atividadeClienteId : body.sourceEvent.clientActivityId
-    };
-
-  }
+  messages.keys = {
+    userId : body.user.id,
+    conversaId : body.address.conversation.id,
+    addressId :  body.address.id,
+    botId : body.address.bot.id,
+    atividadeClienteId : body.sourceEvent.clientActivityId
+  };
 
   return messages;
 }

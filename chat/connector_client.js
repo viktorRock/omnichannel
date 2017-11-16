@@ -29,7 +29,6 @@ function addUser(msg){
 
   if(!userName){
     socket.emit('sync user', msg.contato);
-    console.log(msg.contato + " -> was Sync @@@@@@@@@@@@@@@@@@@@@@@");
   }
 }
 
