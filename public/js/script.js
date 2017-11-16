@@ -10,6 +10,8 @@ var chatFormID = "#chat-input-form";
 var chatWindowClass = ".chat-window";
 var chatUserInputID = "#chat-user-input";
 var chatTextID = "#chat-text";
+var chatConnectID = "#chat-conn-status";
+
 var MSG_SELF_DESCON = "Você foi Desconectado ";
 var MSG_SELF_CON = "Você foi conectado ";
 var MSG_USER_DESCON = " foi Desconectado ";
@@ -182,6 +184,7 @@ socket.on('connect', () => {
   }
   let options = { messageType : MSG_TYPE_STATUS };
   addChatMessage(msg,options);
+  $(chatConnectID).css('color', 'yellowgreen'); 
 });
 
 socket.on('disconnect', function () {
@@ -191,6 +194,7 @@ socket.on('disconnect', function () {
   }
   let options = { messageType : MSG_TYPE_STATUS };
   addChatMessage(msg,options);
+  $(chatConnectID).css('color', 'orangered'); 
 });
 
 socket.on('reconnect_error', function () {
@@ -200,6 +204,7 @@ socket.on('reconnect_error', function () {
   }
   let options = { messageType : MSG_TYPE_STATUS };
   addChatMessage(msg),options;
+  // $(chatConnectID).css('color', 'orangered'); 
 });
 
 //mensagem de usuário que entrou

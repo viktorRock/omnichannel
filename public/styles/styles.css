@@ -1,41 +1,26 @@
 
 /*********************************************************************/
-.mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type .mdl-layout.is-small-screen  {
+@media only screen and (max-width: 767px) {
+  .mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type  {
     padding-left: 12px;
-}
-
-.mdl-data-table td .mdl-layout.is-small-screen {
+  }
+  .mdl-data-table td  {
     padding: 8px 4px
-}
-
-.mdl-data-table .mdl-layout.is-small-screen {
+  }
+  .mdl-data-table  {
     white-space: normal;
-}
-
-.mdl-data-table th .mdl-layout.is-small-screen{
+  }
+  .mdl-data-table th {
     padding: 0 4px 8px 4px;
+  }
 }
 
 /*********************************************************************/
-.canal-email{
-  background-color: darkcyan;
-}
-
-.canal-telegram{
-  background-color: cornflowerblue;
-}
-
-.canal-skype{
-  background-color: deepskyblue;
-}
-
-.canal-facebook{
-  background-color: slateblue;
-}
-
-.canal-messenger{
-  background-color: darkblue;
-}
+.canal-email     {background-color: darkcyan;}
+.canal-telegram  {background-color: cornflowerblue;}
+.canal-skype     {background-color: deepskyblue;}
+.canal-facebook  {background-color: slateblue;}
+.canal-messenger {background-color: darkblue;}
 
 .canal-box{
   border-radius: 30px;
@@ -51,17 +36,24 @@
   align-items: center;
 }
 
+/*******************************************************************/
+#chat-conn-status{
+  font-size: 32px;
+}
+
 .chat-kit {
   position: fixed;
   display: inline-block;
   bottom: 0;
   right: 0;
   z-index: 900;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
 }
-/*.chat-kit .mdl-card__title{
-position: fixed;
-}*/
+
+.chat-card-square .mdl-card__title {
+  padding: 8px;
+}
+
 #chat-text{
   overflow : auto;
   display: inline-block;
@@ -89,6 +81,7 @@ position: fixed;
     margin-right: 40px;
   }
 }
+/*******************************************************************/
 #switchBot--label {
   width: auto;
 }
